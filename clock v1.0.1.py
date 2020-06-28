@@ -37,14 +37,6 @@ def twelvehcorrect(hour):
 		return hour-12
 	else:
 		return hour
-
-#im pretty sure this is not needed anymore. will be removed in later version. 
-def hcorrect(hour):
-	if hour > 60:
-		return 0
-	else:
-		return hour
-
 while True:
 	c.delete("all")
 
@@ -60,7 +52,7 @@ while True:
 
 	#grabs the local time of the pc and converts them if needed to the right format
 	ct = time.localtime()
-	ct = [[ct[5]+1,60,170,"#0000ff"],[ct[4],60,150,"#00ff00"],[hcorrect(twelvehcorrect(ct[3])*5),60,100,"#ff0000"]]
+	ct = [[ct[5]+1,60,170,"#0000ff"],[ct[4],60,150,"#00ff00"],[twelvehcorrect(ct[3])*5,60,100,"#ff0000"]]
 	for obj in ct:
 		visualizer(obj[1],obj[2],obj[0], obj[3])
 	
